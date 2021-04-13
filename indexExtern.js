@@ -52,16 +52,17 @@ const mapVectorSource = new ol.source.Vector({
 const mapVectorLayer = new ol.layer.Vector({
     source: mapVectorSource,
 });
+const view=new ol.View({
+    // center: center,
+    center: [35.217018, 31.771959],
+    projection: 'EPSG:4326',
+    zoom: 5,
+    // minZoom: 1,
+    // maxZoom: 20,
+});
 const map = new ol.Map({
     target: document.getElementById('map'),
-    view: new ol.View({
-        // center: center,
-        center: [35.217018, 31.771959],
-        projection: 'EPSG:4326',
-        zoom: 5,
-        // minZoom: 1,
-        // maxZoom: 20,
-    }),
+    view: view,
     layers: [
         new ol.layer.Tile({
             source: new ol.source.OSM() //original map
@@ -85,6 +86,17 @@ map.addControl(external_control);
 external_control = new ol.control.Rotate({autoHide:false,
     target: document.getElementById('external_control') });
 map.addControl(external_control);
+document.getElementById('rotate-left').addEventListener("click",function() {
+    view.animate({
+      rotation: view.getRotation() + Math.PI / 2
+    });
+});
+
+document.getElementById('rotate-right').addEventListener("click",function() {
+    view.animate({
+      rotation: view.getRotation() - Math.PI / 2
+    });
+});
 // external_control = new ol.control.RotateNorthControl({
 //     target: document.getElementById('external_control') 
 // });
@@ -112,10 +124,10 @@ startMarker.setStyle(new ol.style.Style({
             color:"white",
         }),
    
-        src: "images/target-png.png",//'https://openlayers.org/en/v4.6.5/examples/data/icon.png'//
-        scale:4,
+        src: "./images/jetTransparent.png",//'https://openlayers.org/en/v4.6.5/examples/data/icon.png'//
+        scale:1,
         // rotation:30,
-        rotateWithView:50,
+        rotateWithView:false,
     }),
     // text: new ol.style.Text({
     //     font: '15px Narkisim, bold',
@@ -232,6 +244,7 @@ function requestForIsraelAirplanes() {
                                 // src: images.airplane,
                                 src: "./images/airplane.png",
                                 rotation: degrees_to_radians(el[10]),
+                                rotateWithView:true,
                             })
                         }))
                         // let lon = 
