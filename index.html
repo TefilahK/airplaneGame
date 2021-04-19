@@ -14,7 +14,7 @@
   type="text/css"/>
 <script src="./ol.js"></script>
 
-<link rel="stylesheet" href="style5.css">
+<link rel="stylesheet" href="style.css">
 
 
 
@@ -45,7 +45,7 @@
     
         </div>
     </header>
-    <div class="collapse in" id="collapseExample">
+    <div class="collapse" id="collapseExample">
         <div class="container444">
             <div id="map" class="map"></div>
             <!-- <div id="map" class="map"></div> -->
@@ -55,13 +55,13 @@
             
     </div>
     
-            <button id="rotate-left" title="Rotate clockwise">↻</button>
-            <button id="rotate-right" title="Rotate counterclockwise">↺</button>
-            <label for="speed">
-                speed:&nbsp;
-                <input id="speed" type="range" min="10" max="999" step="10" value="60">
-              </label>
-              <button id="start-animation">Start Animation</button>
+    <button id="rotate-left" title="Rotate clockwise">↻</button>
+    <button id="rotate-right" title="Rotate counterclockwise">↺</button>
+    <label for="speed">
+        speed:&nbsp;
+        <input id="speed" type="range" min="10" max="999" step="10" value="60">
+        </label>
+        <button id="start-animation">Start Animation</button>
    
     
     
@@ -69,14 +69,11 @@
   </body>
   <script type="text/javascript">
     $(document).ready(function () {
-        $('#collapseExample').on('click', function () {
-            $('.header').toggleClass('active');
-            $(this).toggleClass('active');
+        $('#jump-btn').on('click', function () {
+            $('.header').toggleClass('nonactive');
+            $('collapseExample').toggleClass('in');
         });
     });
-    $('#jump-btn').on("click",()=>{
-        $('.header').toggleClass('nonactive');
-    })
     $(document).ready(function(){
     $('.header').height($(window).height());   
     });
