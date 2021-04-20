@@ -94,35 +94,35 @@ function setMapGame(){
     }
 
 
-// var RotateNorthControl = /*@__PURE__*/(function (Control) {
-//     function RotateNorthControl(opt_options) {
-//       var options = opt_options || {};
+var Bomb = /*@__PURE__*/(function (Control) {
+    function Bomb(opt_options) {
+      var options = opt_options || {};
   
-//       var button = document.createElement('button');
-//       button.innerHTML = 'N';
+      var button = document.createElement('button');
+      button.innerHTML = 'LLLL'//<imag src="../images/traget.jpg"></imag>'
   
-//       var element = document.createElement('div');
-//       element.className = 'rotate-north ol-unselectable ol-control';
-//       element.appendChild(button);
+      var element = document.createElement('div');
+      element.className = 'bomb';
+      element.appendChild(button);
   
-//       Control.call(this, {
-//         element: element,
-//         target: options.target,
-//       });
+      Control.call(this, {
+        element: element,
+        target: options.target,
+      });
   
-//       button.addEventListener('click', this.handleRotateNorth.bind(this), false);
-//     }
+      button.addEventListener('click', this.handleRotateNorth.bind(this), false);
+    }
   
-//     if ( Control ) RotateNorthControl.__proto__ = Control;
-//     RotateNorthControl.prototype = Object.create( Control && Control.prototype );
-//     RotateNorthControl.prototype.constructor = RotateNorthControl;
+    // if ( Control ) RotateNorthControl.__proto__ = Control;
+    Bomb.prototype = Object.create( Control && Control.prototype );
+    Bomb.prototype.constructor = Bomb;
   
-//     RotateNorthControl.prototype.handleRotateNorth = function handleRotateNorth () {
-//       this.getMap().getView().setRotation(0);
-//     };
+    Bomb.prototype.handleRotateNorth = function handleRotateNorth () {
+      this.getMap().getView().setRotation(0);
+    };
   
-//     return RotateNorthControl;
-//   }(ol.control.Control));
+    return Bomb;
+  }(ol.control.Control));
 
 /****************************************/
 /*            Basic Map                 */
@@ -186,10 +186,10 @@ map.addControl(external_control);
 //       rotation: view.getRotation() - Math.PI / 2
 //     });
 // });
-// external_control = new ol.control.RotateNorthControl({
-//     target: document.getElementById('external_control') 
-// });
-// map.addControl(external_control);
+external_control = new Bomb({
+    target: document.getElementById('external_control') 
+});
+map.addControl(external_control);
 
 // new ol.control.ZoomToExtent({
 //     extent: [
