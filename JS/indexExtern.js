@@ -71,12 +71,13 @@ function setTimer(){
     }
     }, 1000);
 }
-function setGame(levelType){
+async function setGame(levelType){
     let interface=document.getElementById('interface');
-    interface.innerHTML='<p id="timer"></p><div id="map" class="map"></div> '
+    interface.innerHTML='<div class="rounded bg-gradient-4 text-white shadow p-5 text-center mb-5" id="timer"></div><div id="map" class="map"></div> '
     switch(levelType) {
         case 'easy':
            setMapGame();
+        //    alert("Your Misiion is:xxxxxx")
             break;
         case 'medium':
             break;
@@ -161,6 +162,7 @@ const map = new ol.Map({
         }), mapVectorLayer],
         controls: ([]) //controls: ol.control.defaults().extend([]),
 });
+
 let external_control = new ol.control.Zoom({
     target: document.getElementById('external_control') });
 map.addControl(external_control);
@@ -380,6 +382,11 @@ var popup = new ol.Overlay({
   });
 
 setInterval(requestForIsraelAirplanes, 5000);
+map.once('postrender', function(event) {
+
+   console.log("rendered map")
+   alert("lala")
+});
 }
 
 // requestForIsraelAirplanes();

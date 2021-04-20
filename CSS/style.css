@@ -201,3 +201,28 @@ background-color:#343a40!important
     background-size: cover;
     background-position: center;
   } */
+
+
+.bg-gradient-4 {
+    background: #007991;
+    background: -webkit-linear-gradient(to right, #007991, #78ffd6);
+    background: linear-gradient(to right, #007991, #78ffd6);
+}
+
+.rounded {
+    border-radius: 1rem !important;
+}
+
+.btn-demo {
+    padding: 0.5rem 2rem !important;
+    border-radius: 30rem !important;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold !important;
+}
+
+.btn-demo:hover, .btn-demo:focus {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.5);
+}
