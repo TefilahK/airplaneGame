@@ -1,29 +1,33 @@
-import 'ol/ol.css';
-import Feature from 'ol/Feature';
-import Map from 'ol/Map';
-import Point from 'ol/geom/Point';
-import Polyline from 'ol/format/Polyline';
-import VectorSource from 'ol/source/Vector';
-import View from 'ol/View';
-import XYZ from 'ol/source/XYZ';
-import {
-    Circle as CircleStyle,
-    Fill,
-    Icon,
-    Stroke,
-    Style,
-    Text
-} from 'ol/style';
-import 'ol/ol.css';
-import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer';
-import { easeOut } from 'ol/easing';
-import { fromLonLat } from 'ol/proj';
-import { getVectorContext } from 'ol/render';
-import { unByKey } from 'ol/Observable';
-import { hasFlag } from 'country-flag-icons'
-import { countries } from 'country-flag-icons'
-import { isoCountries, degrees_to_radians } from './utils'
-import images from "./images/*.png";
+
+
+
+
+// import 'ol/ol.css';
+// import Feature from 'ol/Feature';
+// import Map from 'ol/Map';
+// import Point from 'ol/geom/Point';
+// import Polyline from 'ol/format/Polyline';
+// import VectorSource from 'ol/source/Vector';
+// import View from 'ol/View';
+// import XYZ from 'ol/source/XYZ';
+// import {
+//     Circle as CircleStyle,
+//     Fill,
+//     Icon,
+//     Stroke,
+//     Style,
+//     Text
+// } from 'ol/style';
+// import 'ol/ol.css';
+// import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer';
+// import { easeOut } from 'ol/easing';
+// import { fromLonLat } from 'ol/proj';
+// import { getVectorContext } from 'ol/render';
+// import { unByKey } from 'ol/Observable';
+// import { hasFlag } from 'country-flag-icons'
+// import { countries } from 'country-flag-icons'
+// import { isoCountries, degrees_to_radians } from './utils'
+// import images from "./images/*.png";
 
 
 //Convert country to code and to Flag:
