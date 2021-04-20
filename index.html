@@ -36,6 +36,7 @@
 
 </head>
 <body>
+    <div id="interface">
     <!-- navbar -->  
  <nav class="navbar navbar-dark bg-dark">  
     <a class="navbar-brand" href="#">Home</a>
@@ -190,40 +191,42 @@
       </div>
      </div>
     </div>
-   </div>
+   
    <!-- Team section -->
 <div class="team">
     <div class="container">
        <h1 class="text-center">Lets Play:</h1>
      <div class="row">
-        <div class="col-md-4 col-lg-4 col-sm-12">
+        <div class="col-md-4 col-lg-4 col-sm-12 item">
        <!-- <img src="images/team-2.jpg" class="img-fluid" alt="team"> -->
-       <div class="des">
+       <div class="des" onclick="setSignIn('easy')">
         Easy
         </div>
         <span class="text-muted"></span>
       </div>
-      <div class="col-md-4 col-lg-4 col-sm-12">
+      <div class="col-md-4 col-lg-4 col-sm-12 item">
        <!-- <img src="images/team-3.jpg" class="img-fluid" alt="team"> -->
-       <div class="des">
+       <div class="des" onclick="setSignIn('medium')">
         Medium
         </div>
         <span class="text-muted"></span>
 
       </div>
-      <div class="col-md-4 col-lg-4 col-sm-12">
+      <div class="col-md-4 col-lg-4 col-sm-12 item">
        <!-- <img src="images/team-2.jpg" class="img-fluid" alt="team"> -->
-       <div class="des">
+       <div class="des" onclick="setSignIn('hard')">
         Hard 
-    </div>
-        <span class="text-muted">lala</span>
+        </div>
+        <span class="text-muted"></span>
       </div>
      </div>
     </div>
    </div>
+
    <div class="portfolio">
+    <div class="container">
     <h1 class="text-center">Scores:</h1>
-<div class="container">
+        
   
    <table class="table table-striped table-dark">
     <thead>
@@ -260,7 +263,7 @@
    
 
   <script type="text/javascript" src='JS/indexExtern.js'></script>
-    
+</div>
    
   </body>
 

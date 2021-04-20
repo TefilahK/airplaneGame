@@ -33,6 +33,12 @@ background-color:#343a40!important
         background-size: cover;
         background-position: center;
        }
+    .header2{
+        background-image: url('../images/airplane_world.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+       }
        .overlay{
         position: absolute;
         min-height: 100%;
@@ -148,7 +154,7 @@ background-color:#343a40!important
     color: #fff;
     text-align: center;
     border-bottom-left-radius: 93%;
-    transition:.3s ease-in-out;
+    /* transition:.3s ease-in-out; */
     
    }
 
@@ -183,3 +189,15 @@ background-color:#343a40!important
     color: #888;
     font-size: 16px;
    }
+
+   #map {
+   width:900px;
+   height:800px
+    /* z-index: 100000; */
+  }
+  /* #signin{
+    background-image: url('../images/airplane_world.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+  } */
