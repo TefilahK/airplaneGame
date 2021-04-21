@@ -1,20 +1,108 @@
-
-
-function degrees_to_radians(degrees) {
-    var pi = Math.PI;
-    return degrees * (pi / 180);
+let users=[];
+$(document).ready(function(){
+    $('.header').height($(window).height());
+    
+})
+$(".navbar a").click(function(){
+    $("body,html").animate({
+     scrollTop:$("#" + $(this).data('value')).offset().top
+    },1000)
+    
+   })
+function setSignIn(levelType){
+    let interface=document.getElementById('interface');
+    interface.innerHTML=' <header class="header2">\
+    <div class="overlay">\
+     <class="container">\
+     <div class="description ">\
+    <div id="signin">\
+    <div class="row">\
+      <div class="col">\
+        <input type="text" class="form-control" name="firstName" placeholder="First name">\
+      </div>\
+      </div>\
+      <div class="row">\
+      <div class="col">\
+        <input type="text" class="form-control" name="lastName" placeholder="Last name">\
+      </div>\
+    </div>\
+    <div class="row">\
+    <button id="click_setGame" class="btn btn-primary mb-2">PLAY</button>\
+    </div>\
+  </div> \
+  </div>\
+  </div>\
+  </div>\
+  </div>\
+  </div>\
+  </header>'
+  document.getElementById('click_setGame').addEventListener('click',()=>{
+    users.push([document.querySelector('input[name=firstName]').value,document.querySelector('input[name=lastName]').value])
+    setGame(levelType)
+  });
 }
+function setTimer(){
+    // Set the date we're counting down to
+    let countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
+
+    // Update the count down every 1 second
+    let x = setInterval(function() {
+
+    // Get today's date and time
+    let now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    let distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the result in the element with id="demo"
+    document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+    }, 1000);
+}
+async function setGame(levelType){
+    let interface=document.getElementById('interface');
+    interface.innerHTML='<div class="rounded bg-gradient-4 text-white shadow p-5 text-center mb-5" id="timer"></div><div id="map" class="map"></div> '
+    switch(levelType) {
+        case 'easy':
+           setMapGame();
+        //    alert("Your Misiion is:xxxxxx")
+            break;
+        case 'medium':
+            break;
+        case 'hard':
+            break;
+
+    }
+    setTimer();
+}
+function setMapGame(){
+    function degrees_to_radians(degrees) {
+        var pi = Math.PI;
+        return degrees * (pi / 180);
+    }
 
 
-var RotateNorthControl = /*@__PURE__*/(function (Control) {
-    function RotateNorthControl(opt_options) {
+var Bomb = /*@__PURE__*/(function (Control) {
+    function Bomb(opt_options) {
       var options = opt_options || {};
   
       var button = document.createElement('button');
-      button.innerHTML = 'N';
+      button.innerHTML = 'LLLL'//<imag src="../images/traget.jpg"></imag>'
   
       var element = document.createElement('div');
-      element.className = 'rotate-north ol-unselectable ol-control';
+      element.className = 'bomb';
       element.appendChild(button);
   
       Control.call(this, {
@@ -25,15 +113,15 @@ var RotateNorthControl = /*@__PURE__*/(function (Control) {
       button.addEventListener('click', this.handleRotateNorth.bind(this), false);
     }
   
-    if ( Control ) RotateNorthControl.__proto__ = Control;
-    RotateNorthControl.prototype = Object.create( Control && Control.prototype );
-    RotateNorthControl.prototype.constructor = RotateNorthControl;
+    // if ( Control ) RotateNorthControl.__proto__ = Control;
+    Bomb.prototype = Object.create( Control && Control.prototype );
+    Bomb.prototype.constructor = Bomb;
   
-    RotateNorthControl.prototype.handleRotateNorth = function handleRotateNorth () {
+    Bomb.prototype.handleRotateNorth = function handleRotateNorth () {
       this.getMap().getView().setRotation(0);
     };
   
-    return RotateNorthControl;
+    return Bomb;
   }(ol.control.Control));
 
 /****************************************/
@@ -74,6 +162,7 @@ const map = new ol.Map({
         }), mapVectorLayer],
         controls: ([]) //controls: ol.control.defaults().extend([]),
 });
+
 let external_control = new ol.control.Zoom({
     target: document.getElementById('external_control') });
 map.addControl(external_control);
@@ -86,21 +175,21 @@ map.addControl(external_control);
 external_control = new ol.control.Rotate({autoHide:false,
     target: document.getElementById('external_control') });
 map.addControl(external_control);
-document.getElementById('rotate-left').addEventListener("click",function() {
-    view.animate({
-      rotation: view.getRotation() + Math.PI / 2
-    });
-});
-
-document.getElementById('rotate-right').addEventListener("click",function() {
-    view.animate({
-      rotation: view.getRotation() - Math.PI / 2
-    });
-});
-// external_control = new ol.control.RotateNorthControl({
-//     target: document.getElementById('external_control') 
+// document.getElementById('rotate-left').addEventListener("click",function() {
+//     view.animate({
+//       rotation: view.getRotation() + Math.PI / 2
+//     });
 // });
-// map.addControl(external_control);
+
+// document.getElementById('rotate-right').addEventListener("click",function() {
+//     view.animate({
+//       rotation: view.getRotation() - Math.PI / 2
+//     });
+// });
+external_control = new Bomb({
+    target: document.getElementById('external_control') 
+});
+map.addControl(external_control);
 
 // new ol.control.ZoomToExtent({
 //     extent: [
@@ -293,5 +382,11 @@ var popup = new ol.Overlay({
   });
 
 setInterval(requestForIsraelAirplanes, 5000);
+map.once('postrender', function(event) {
+
+   console.log("rendered map")
+   alert("lala")
+});
+}
 
 // requestForIsraelAirplanes();
