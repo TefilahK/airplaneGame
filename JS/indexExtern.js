@@ -99,7 +99,7 @@ var Bomb = /*@__PURE__*/(function (Control) {
       var options = opt_options || {};
   
       var button = document.createElement('button');
-      button.innerHTML = 'LLLL'//<imag src="../images/traget.jpg"></imag>'
+      button.innerHTML = "<img src=\"../images/israelIcon.png\" >"//'LLLL'//<imag src="../images/traget.jpg"></imag>'
   
       var element = document.createElement('div');
       element.className = 'bomb';
