@@ -5,10 +5,16 @@
   <title>Title</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
- 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <!-- bootstrap -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script> -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  
   <link
   rel="stylesheet"
   href="./ol.css"
@@ -22,7 +28,7 @@
  <!-- Font Awesome JS -->
  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-
+ <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script> -->
 
  <script src="https://unpkg.com/elm-pep"></script>
@@ -32,33 +38,14 @@
 <body>
     <div id="interface">
     <!-- navbar -->  
-    <!-- <nav class="navbar navbar-expand-lg fixed-top ">  
-        <a class="navbar-brand" href="#header">Home</a>
-       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">  
-        <span class="navbar-toggler-icon"></span>
-       </button>
-       <div class="collapse navbar-collapse " id="navbarSupportedContent">     <ul class="navbar-nav mr-4">
-        <li class="nav-item">
-            <a class="nav-link" data-value="about" href="#">About</a>        </li>  
-       <li class="nav-item">
-           <a class="nav-link " data-value="portfolio"href="#">Portfolio</a>    
-        </li>
-        <li class="nav-item"> 
-           <a class="nav-link " data-value="blog" href="#">Blog</a>         </li>   
-       <li class="nav-item">  
-          <a class="nav-link " data-value="team" href="#">         Team</a>       </li>  
-       <li class="nav-item"> 
-        <a class="nav-link " data-value="contact" href="#">Contact</a>       </li> 
-       </ul> 
-       </div></nav> -->
- <nav class="navbar navbar-expand-lg fixed-top">  
-    <a class="navbar-brand" href="#home">Home</a>
+ <nav class="navbar navbar-dark bg-dark">  
+    <a class="navbar-brand" href="#">Home</a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">  
     <span class="navbar-toggler-icon"></span>
    </button>
    <div class="collapse navbar-collapse " id="navbarSupportedContent">     <ul class="navbar-nav mr-4">
     <li class="nav-item">
-        <a class="nav-link" id="about" data-value="about" href="#about">About</a>        </li>  
+        <a class="nav-link" id="about" data-value="about" href="#">About</a>        </li>  
    <li class="nav-item">
        <a class="nav-link " id="insight" data-value="insight"href="#">Insight</a>    
     </li>
@@ -70,7 +57,7 @@
     <a class="nav-link " id="scores" data-value="scores" href="#">High Scores</a>       </li> 
    </ul> 
    </div></nav>
-   <header class="header" id='home'>
+   <header class="header">
     <div class="overlay"></div>
      <div class="container">
         <div class="description ">
@@ -96,7 +83,7 @@
     </div>
    </div> -->
    <!-- portfolio -->
-<div class="portfolio" id="about">
+<div class="portfolio">
     <h1 class="text-center">Quick insight into the game:</h1>
 <div class="container">
  <div class="row">

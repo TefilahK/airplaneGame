@@ -61,7 +61,7 @@ function setTimer(){
     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Display the result in the element with id="demo"
-    document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+    document.getElementById("timer").innerHTML ="TIME LEFT:"+ days + "d " + hours + "h "
     + minutes + "m " + seconds + "s ";
 
     // If the count down is finished, write some text
@@ -73,7 +73,7 @@ function setTimer(){
 }
 async function setGame(levelType){
     let interface=document.getElementById('interface');
-    interface.innerHTML='<div class="rounded bg-gradient-4 text-white shadow p-5 text-center mb-5" id="timer"></div><div id="map" class="map"></div> '
+    interface.innerHTML='<div class="rounded bg-gradient-4 text-white shadow p-5 text-center mb-5" id="timer"></div><div id="map" class="map"></div>'
     switch(levelType) {
         case 'easy':
            setMapGame();
@@ -99,19 +99,40 @@ var Bomb = /*@__PURE__*/(function (Control) {
       var options = opt_options || {};
   
       var button = document.createElement('button');
-    //   button.innerHTML = "<img src=\"../images/israelIcon.png\" >"//'LLLL'//<imag src="../images/traget.jpg"></imag>'
-      button.innerHTML = `<img src=${'../images/israelIcon.png'} >`
-  
+      button.innerHTML = '<i class="fas fa-bomb"></i>'
+      button.className='btnpanel' 
+      button.onclick=()=>{alert('bomb')}
+       
+      var button2 = document.createElement('button');
+      button2.innerHTML = '<i class="fas fa-draw-polygon"></i>'
+      button2.className='btnpanel'
+      button2.onclick=()=>{alert('draw')}
+ 
+
+      var button3 = document.createElement('button');
+      button3.innerHTML = '<i class="fa fa-paint-brush" aria-hidden="true"></i>'
+      button3.className='btnpanel' 
+      button3.onclick=()=>{alert('paintBrush')}
+
+    //   var timer = document.createElement('div');
+    //   timer.innerHTML ='<div class="rounded bg-gradient-4 text-white shadow p-5 text-center mb-5" id="timer"></div>'
+    //   timer.className='btnpanel' 
+    //   timer.onclick=()=>{alert('paintBrush')}
+
+
       var element = document.createElement('div');
-      element.className = 'bomb';
+      element.className = 'ol-unselectable ol-mycontrol';
       element.appendChild(button);
+      element.appendChild(button2);
+      element.appendChild(button3);
+    //   element.appendChild(button4);
   
       Control.call(this, {
         element: element,
         target: options.target,
       });
-  
-      button.addEventListener('click', this.handleRotateNorth.bind(this), false);
+      setTimer();
+    //   button.addEventListener('click', this.handleRotateNorth.bind(this), false);
     }
   
     // if ( Control ) RotateNorthControl.__proto__ = Control;
@@ -391,3 +412,100 @@ map.once('postrender', function(event) {
 }
 
 // requestForIsraelAirplanes();
+
+
+
+
+
+
+/**
+ * Define a namespace for the application.
+//  */
+//  window.app = {};
+//  var app = window.app;
+ 
+ 
+//  //
+//  // Define CustomToolbarControl.
+//  //
+ 
+ 
+ 
+//  /**
+//   * @constructor
+//   * @extends {ol.control.Control}
+//   * @param {Object=} opt_options Control options.
+//   */
+//  app.CustomToolbarControl = function(opt_options) {
+ 
+//    var options = opt_options || {};
+ 
+//    var button = document.createElement('button');
+//    button.innerHTML = 'N';
+     
+//    var button1 = document.createElement('button');
+//    button1.innerHTML = 'some button';
+     
+//    var selectList = document.createElement("select");
+//    selectList.id = "mySelect";
+//    selectList.onchange = function(e){
+//        console.log(e);
+//        alert(this.value);
+//    }
+//    var array = ["layer1","layer2","layer3","layer4"];
+//    for (var i = 0; i < array.length; i++) {
+//      var option = document.createElement("option");
+//      option.value = array[i];
+//      option.text = array[i];
+//      selectList.appendChild(option);
+//      }
+ 
+//    var this_ = this;
+//    var handleRotateNorth = function(e) {
+//      this_.getMap().getView().setRotation(0);
+//    };
+     
+ 
+//    button.addEventListener('click', handleRotateNorth, false);
+//    button.addEventListener('touchstart', handleRotateNorth, false);
+ 
+//    var element = document.createElement('div');
+//    element.className = 'ol-unselectable ol-mycontrol';
+//    element.appendChild(button);
+//    element.appendChild(button1);
+//    element.appendChild(selectList);
+ 
+//    ol.control.Control.call(this, {
+//      element: element,
+//      target: options.target
+//    });
+ 
+//  };
+//  ol.inherits(app.CustomToolbarControl, ol.control.Control);
+ 
+ 
+//  //
+//  // Create map, giving it a rotate to north control.
+//  //
+ 
+ 
+//  var map = new ol.Map({
+//    controls: ol.control.defaults({
+//      attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
+//        collapsible: false
+//      })
+//    }).extend([
+//      new app.CustomToolbarControl()
+//    ]),
+//    layers: [
+//      new ol.layer.Tile({
+//        source: new ol.source.OSM()
+//      })
+//    ],
+//    target: 'map',
+//    view: new ol.View({
+//      center: [0, 0],
+//      zoom: 2,
+//      rotation: 1
+//    })
+//  });
