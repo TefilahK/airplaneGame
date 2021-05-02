@@ -41,6 +41,10 @@ function setSignIn(levelType){
     setGame(levelType)
   });
 }
+function setScore(){
+    let score=0
+    document.getElementById("score").innerHTML ="Score: "+score.toString();
+}
 function setTimer(){
     // Set the date we're counting down to
     let countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
@@ -61,7 +65,7 @@ function setTimer(){
     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Display the result in the element with id="demo"
-    document.getElementById("timer").innerHTML ="TIME LEFT:"+ days + "d " + hours + "h "
+    document.getElementById("timer").innerHTML ="Time Left: "+ days + "d " + hours + "h "
     + minutes + "m " + seconds + "s ";
 
     // If the count down is finished, write some text
@@ -71,9 +75,37 @@ function setTimer(){
     }
     }, 1000);
 }
+function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("topnav").style.marginLeft = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("topnav").style.marginLeft= "0";
+}
+
 async function setGame(levelType){
     let interface=document.getElementById('interface');
-    interface.innerHTML='<div class="rounded bg-gradient-4 text-white shadow p-5 text-center mb-5" id="timer"></div><div id="map" class="map"></div>'
+    interface.innerHTML=' <div id="mySidebar" class="sidebar">\
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>\
+      <a href="#">Pause</a>\
+      <a href="#">Resume</a>\
+      <a href="#">Restart</a>\
+      <a href="#">End Game</a>\
+    </div>\
+    <div id="topnav" class="topnav">\
+    <ul>\
+    <a  id="settings" href="#home">☰ Settings</a>\
+    <a href="#news">action1</a>\
+    <a href="#contact">action2</a>\
+    <a href="#about">action3</a>\
+    <a href="#score" id="score"  >Score:</a>\
+    <a href="#about" class="rounded bg-gradient-4 timer" id="timer" ></a>\
+    </ul>\
+    </div>\
+    </div><div id="map" class="map"></div>'
+    document.getElementById('settings').addEventListener('click',openNav);
     switch(levelType) {
         case 'easy':
            setMapGame();
@@ -86,6 +118,7 @@ async function setGame(levelType){
 
     }
     setTimer();
+    setScore();
 }
 function setMapGame(){
     function degrees_to_radians(degrees) {
