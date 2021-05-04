@@ -187,11 +187,11 @@ html,h1,h2,h3,h4,h5,h6,a{
     font-size: 16px;
    }
 
-   #map {
-   width:1900px;
-   height:1000px;
-    /* z-index: 100000; */
-  }
+    #map {
+        height: 900px;
+        width: 100%;
+
+    }
   /* #signin{
     background-image: url('../images/airplane_world.jpg');
     background-attachment: fixed;
@@ -201,15 +201,15 @@ html,h1,h2,h3,h4,h5,h6,a{
 
 
 .bg-gradient-4 {
-    /* background:red; */
-    background: #007991;
+    background:rgb(85, 106, 173);
+    /* background: #007991; */
     /* background: -webkit-linear-gradient(to right, #007991, #78ffd6);
     background: linear-gradient(to right, #007991, #78ffd6); */
 }
 
-/* .rounded {
-    border-radius: 1rem !important;
-} */
+.rounded {
+    border-radius: 3rem !important;
+}
 
 .btn-demo {
     padding: 0.5rem 2rem !important;
@@ -228,23 +228,39 @@ html,h1,h2,h3,h4,h5,h6,a{
 
 /* /////btn in map////// */
 .btnpanel{
-    width:50px;
-    height: 50px;
-    background-color:grey;
+    width:60px;
+    height: 60px;
+    background-color: black; 
+    color: #ddd;
+    box-shadow: 5px 10px #888888;
+    /* display: none; */
 }
+
 .btnpanel:hover, .btn-demo:focus {
     color: white;
-    background:black;
+    background-color: rgba(255, 255, 255, 0.4);
 }
-  .ol-mycontrol {
-      background-color: rgba(255, 255, 255, 0.4);
-      border-radius: 4px;
-      padding: 2px;
-      position: absolute;
-      width:300px;
-      top: 5px;
-      left:300px;
+.ol-mycontrol {
+    pointer-events: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    /* justify-content: center; */
+
+    /* background-color: rgba(255, 255, 255, 0.4); */
+    border-radius: 4px;
+    padding: 2px;
+    position: absolute;
+    /* height: 300px; */
+    /* top: 600px; */
+    left:40%;
+    bottom: 50px;
+    
   }
+ 
 
 /*****************
 top nav bar for map 
@@ -272,6 +288,7 @@ top nav bar for map
     text-decoration: none;
     font-size: 17px;
     
+    
   }
   
   /* Change the color of links on hover */
@@ -286,8 +303,8 @@ top nav bar for map
     color: white;
   }
   .timer{
-    flex: 1;
-    width:65%;
+    order: 5 !important;
+    /* width: ; */
   }
 
 /**********************
@@ -338,4 +355,8 @@ side nav bar
   
   .openbtn:hover {
     background-color: #444;
+  }
+  /* buttons on top of the map */
+  .ontop-map{
+    background-color: #ac2bac;right:0; z-index:10000000;
   }

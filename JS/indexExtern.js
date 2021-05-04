@@ -9,42 +9,42 @@ $(".navbar a").click(function(){
     },1000)
     
    })
-function setSignIn(levelType){
-    let interface=document.getElementById('interface');
-    interface.innerHTML=' <header class="header2">\
-    <div class="overlay">\
-     <class="container">\
-     <div class="description ">\
-    <div id="signin">\
-    <div class="row">\
-      <div class="col">\
-        <input type="text" class="form-control" name="firstName" placeholder="First name">\
-      </div>\
-      </div>\
-      <div class="row">\
-      <div class="col">\
-        <input type="text" class="form-control" name="lastName" placeholder="Last name">\
-      </div>\
-    </div>\
-    <div class="row">\
-    <button id="click_setGame" class="btn btn-primary mb-2">PLAY</button>\
-    </div>\
-  </div> \
-  </div>\
-  </div>\
-  </div>\
-  </div>\
-  </div>\
-  </header>'
-  document.getElementById('click_setGame').addEventListener('click',()=>{
-    users.push([document.querySelector('input[name=firstName]').value,document.querySelector('input[name=lastName]').value])
-    setGame(levelType)
-  });
-}
-function setScore(){
-    let score=0
-    document.getElementById("score").innerHTML ="Score: "+score.toString();
-}
+// function setSignIn(levelType){
+//     let interface=document.getElementById('interface');
+//     interface.innerHTML=' <header class="header2">\
+//     <div class="overlay">\
+//      <class="container">\
+//      <div class="description ">\
+//     <div id="signin">\
+//     <div class="row">\
+//       <div class="col">\
+//         <input type="text" class="form-control" name="firstName" placeholder="First name">\
+//       </div>\
+//       </div>\
+//       <div class="row">\
+//       <div class="col">\
+//         <input type="text" class="form-control" name="lastName" placeholder="Last name">\
+//       </div>\
+//     </div>\
+//     <div class="row">\
+//     <button id="click_setGame" class="btn btn-primary mb-2">PLAY</button>\
+//     </div>\
+//   </div> \
+//   </div>\
+//   </div>\
+//   </div>\
+//   </div>\
+//   </div>\
+//   </header>'
+//   document.getElementById('click_setGame').addEventListener('click',()=>{
+//     users.push([document.querySelector('input[name=firstName]').value,document.querySelector('input[name=lastName]').value])
+//     setGame(levelType)
+//   });
+// }
+// function setScore(){
+//     let score=0
+//     document.getElementById("score").innerHTML ="Score: "+score.toString();
+// }
 function setTimer(){
     // Set the date we're counting down to
     let countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
@@ -75,51 +75,53 @@ function setTimer(){
     }
     }, 1000);
 }
-function openNav() {
-    document.getElementById("mySidebar").style.width = "250px";
-    document.getElementById("topnav").style.marginLeft = "250px";
-  }
+setTimer();
+// function openNav() {
+//     document.getElementById("mySidebar").style.width = "250px";
+//     document.getElementById("topnav").style.marginLeft = "250px";
+//   }
   
-  function closeNav() {
-    document.getElementById("mySidebar").style.width = "0";
-    document.getElementById("topnav").style.marginLeft= "0";
-}
+//   function closeNav() {
+//     document.getElementById("mySidebar").style.width = "0";
+//     document.getElementById("topnav").style.marginLeft= "0";
+// }
 
-async function setGame(levelType){
-    let interface=document.getElementById('interface');
-    interface.innerHTML=' <div id="mySidebar" class="sidebar">\
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>\
-      <a href="#">Pause</a>\
-      <a href="#">Resume</a>\
-      <a href="#">Restart</a>\
-      <a href="#">End Game</a>\
-    </div>\
-    <div id="topnav" class="topnav">\
-    <ul>\
-    <a  id="settings" href="#home">☰ Settings</a>\
-    <a href="#news">action1</a>\
-    <a href="#contact">action2</a>\
-    <a href="#about">action3</a>\
-    <a href="#score" id="score"  >Score:</a>\
-    <a href="#about" class="rounded bg-gradient-4 timer" id="timer" ></a>\
-    </ul>\
-    </div>\
-    </div><div id="map" class="map"></div>'
-    document.getElementById('settings').addEventListener('click',openNav);
-    switch(levelType) {
-        case 'easy':
-           setMapGame();
-        //    alert("Your Misiion is:xxxxxx")
-            break;
-        case 'medium':
-            break;
-        case 'hard':
-            break;
+// async function setGame(levelType){
+//     let interface=document.getElementById('interface');
+//     interface.innerHTML=' <div id="mySidebar" class="sidebar">\
+//       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>\
+//       <a href="#">Pause</a>\
+//       <a href="#">Resume</a>\
+//       <a href="#">Restart</a>\
+//       <a href="#">End Game</a>\
+//     </div>\
+//     <div id="topnav" class="topnav">\
+//     <ul>\
+//     <a  id="settings" href="#home">☰ Settings</a>\
+//     <a href="#news">action1</a>\
+//     <a href="#contact">action2</a>\
+//     <a href="#about">action3</a>\
+//     <a href="#score" id="score"  >Score:</a>\
+//     <a href="#about" class="rounded bg-gradient-4 timer" id="timer" ></a>\
+//     </ul>\
+//     </div>\
+//     </div><div id="map" class="map"></div>'
+//     document.getElementById('settings').addEventListener('click',openNav);
+//     switch(levelType) {
+//         case 'easy':
+//            setMapGame();
+//         //    alert("Your Misiion is:xxxxxx")
+//             break;
+//         case 'medium':
+//             break;
+//         case 'hard':
+//             break;
 
-    }
-    setTimer();
-    setScore();
-}
+//     }
+//     setTimer();
+//     setScore();
+// }
+
 function setMapGame(){
     function degrees_to_radians(degrees) {
         var pi = Math.PI;
@@ -130,22 +132,48 @@ function setMapGame(){
 var Bomb = /*@__PURE__*/(function (Control) {
     function Bomb(opt_options) {
       var options = opt_options || {};
+
+      var main = document.createElement('button');
+      main.innerHTML = '<i class="fa-plus"></i>'
+      main.className='btnpanel rounded' 
+      main.onclick=()=>{
+        document.getElementById('bomb').style.display = 'inline';
+        document.getElementById('pickColor').style.display = 'inline';
+        document.getElementById('draw').style.display = 'inline';
+        document.getElementById('paintBrush').style.display = 'inline';
+      }
   
-      var button = document.createElement('button');
-      button.innerHTML = '<i class="fas fa-bomb"></i>'
-      button.className='btnpanel' 
-      button.onclick=()=>{alert('bomb')}
+      var bomb = document.createElement('button');
+      bomb.innerHTML = '<i class="fas fa-bomb fa-2x"></i>'
+      bomb.className='btnpanel rounded' 
+      bomb.id='bomb'
+    //   button.onclick=()=>{document.getElementById()}
+
+      var pickColor = document.createElement('div');
+      pickColor.id='pickColor'
+      pickColor.innerHTML = ''//<i class="fas fa-bomb"></i>'
+      pickColor.className='btnpanel rounded' 
+     //   button.onclick=()=>{document.getElementById()}
+
+
        
-      var button2 = document.createElement('button');
-      button2.innerHTML = '<i class="fas fa-draw-polygon"></i>'
-      button2.className='btnpanel'
-      button2.onclick=()=>{alert('draw')}
+      var draw = document.createElement('button');
+      draw.innerHTML = '<svg  focusable="false" data-prefix="fas" data-icon="draw-polygon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-draw-polygon fa-w-14 fa-3x"><path fill="currentColor" d="M384 352c-.35 0-.67.1-1.02.1l-39.2-65.32c5.07-9.17 8.22-19.56 8.22-30.78s-3.14-21.61-8.22-30.78l39.2-65.32c.35.01.67.1 1.02.1 35.35 0 64-28.65 64-64s-28.65-64-64-64c-23.63 0-44.04 12.95-55.12 32H119.12C108.04 44.95 87.63 32 64 32 28.65 32 0 60.65 0 96c0 23.63 12.95 44.04 32 55.12v209.75C12.95 371.96 0 392.37 0 416c0 35.35 28.65 64 64 64 23.63 0 44.04-12.95 55.12-32h209.75c11.09 19.05 31.49 32 55.12 32 35.35 0 64-28.65 64-64 .01-35.35-28.64-64-63.99-64zm-288 8.88V151.12A63.825 63.825 0 0 0 119.12 128h208.36l-38.46 64.1c-.35-.01-.67-.1-1.02-.1-35.35 0-64 28.65-64 64s28.65 64 64 64c.35 0 .67-.1 1.02-.1l38.46 64.1H119.12A63.748 63.748 0 0 0 96 360.88zM272 256c0-8.82 7.18-16 16-16s16 7.18 16 16-7.18 16-16 16-16-7.18-16-16zM400 96c0 8.82-7.18 16-16 16s-16-7.18-16-16 7.18-16 16-16 16 7.18 16 16zM64 80c8.82 0 16 7.18 16 16s-7.18 16-16 16-16-7.18-16-16 7.18-16 16-16zM48 416c0-8.82 7.18-16 16-16s16 7.18 16 16-7.18 16-16 16-16-7.18-16-16zm336 16c-8.82 0-16-7.18-16-16s7.18-16 16-16 16 7.18 16 16-7.18 16-16 16z" class=""></path></svg>'
+      draw.className='btnpanel rounded'
+      draw.id='draw'
+      draw.onclick=()=>{
+        document.getElementById('form').style.display = 'inline';
+        document.getElementById('closeButton').onclick=()=>{
+            document.getElementById('form').style.display='none';
+        }
+    }
  
 
-      var button3 = document.createElement('button');
-      button3.innerHTML = '<i class="fa fa-paint-brush" aria-hidden="true"></i>'
-      button3.className='btnpanel' 
-      button3.onclick=()=>{alert('paintBrush')}
+      var paintBrush = document.createElement('button');
+      paintBrush.innerHTML = '<i class="fas fa-palette fa-2x" aria-hidden="true"></i> <input style="display:none;" type="color" value="#ff0000" id="colorWell">'
+      paintBrush.className='btnpanel rounded' 
+      paintBrush.id='paintBrush'
+      paintBrush.onclick=()=>{document.getElementById("colorWell").click(); }
 
     //   var timer = document.createElement('div');
     //   timer.innerHTML ='<div class="rounded bg-gradient-4 text-white shadow p-5 text-center mb-5" id="timer"></div>'
@@ -155,9 +183,11 @@ var Bomb = /*@__PURE__*/(function (Control) {
 
       var element = document.createElement('div');
       element.className = 'ol-unselectable ol-mycontrol';
-      element.appendChild(button);
-      element.appendChild(button2);
-      element.appendChild(button3);
+      element.appendChild(main);
+      element.appendChild(bomb);
+      element.appendChild(draw);
+      element.appendChild(pickColor);
+      element.appendChild(paintBrush);
     //   element.appendChild(button4);
   
       Control.call(this, {
@@ -259,30 +289,30 @@ map.addControl(external_control);
 /****************************************/
 
 
-const startMarker = new ol.Feature({
-    geometry: new ol.geom.Point([35.217018, 31.771959]),
-});
-startMarker.setStyle(new ol.style.Style({
-    image: new ol.style.Icon({
-        fill:new ol.style.Fill({
-            color:"white",
-        }),
+// const startMarker = new ol.Feature({
+//     geometry: new ol.geom.Point([35.217018, 31.771959]),
+// });
+// startMarker.setStyle(new ol.style.Style({
+//     image: new ol.style.Icon({
+//         fill:new ol.style.Fill({
+//             color:"white",
+//         }),
    
-        src: "./images/jetTransparent.png",//'https://openlayers.org/en/v4.6.5/examples/data/icon.png'//
-        scale:1,
-        // rotation:30,
-        rotateWithView:false,
-    }),
-    // text: new ol.style.Text({
-    //     font: '15px Narkisim, bold',
-    //     text: 'Israel',
-    //     fill: new ol.style.Fill({ color: '#f3f3f3' }),
-    //     stroke: new ol.style.Stroke({
-    //         color: '#002986', width: 3
-    //     })
-    // }),
-}))
-mapVectorSource.addFeature(startMarker);
+//         src: "./images/jetTransparent.png",//'https://openlayers.org/en/v4.6.5/examples/data/icon.png'//
+//         scale:1,
+//         // rotation:30,
+//         rotateWithView:false,
+//     }),
+//     // text: new ol.style.Text({
+//     //     font: '15px Narkisim, bold',
+//     //     text: 'Israel',
+//     //     fill: new ol.style.Fill({ color: '#f3f3f3' }),
+//     //     stroke: new ol.style.Stroke({
+//     //         color: '#002986', width: 3
+//     //     })
+//     // }),
+// }))
+// mapVectorSource.addFeature(startMarker);
 
 
 
@@ -444,101 +474,6 @@ map.once('postrender', function(event) {
 });
 }
 
+setMapGame();
+
 // requestForIsraelAirplanes();
-
-
-
-
-
-
-/**
- * Define a namespace for the application.
-//  */
-//  window.app = {};
-//  var app = window.app;
- 
- 
-//  //
-//  // Define CustomToolbarControl.
-//  //
- 
- 
- 
-//  /**
-//   * @constructor
-//   * @extends {ol.control.Control}
-//   * @param {Object=} opt_options Control options.
-//   */
-//  app.CustomToolbarControl = function(opt_options) {
- 
-//    var options = opt_options || {};
- 
-//    var button = document.createElement('button');
-//    button.innerHTML = 'N';
-     
-//    var button1 = document.createElement('button');
-//    button1.innerHTML = 'some button';
-     
-//    var selectList = document.createElement("select");
-//    selectList.id = "mySelect";
-//    selectList.onchange = function(e){
-//        console.log(e);
-//        alert(this.value);
-//    }
-//    var array = ["layer1","layer2","layer3","layer4"];
-//    for (var i = 0; i < array.length; i++) {
-//      var option = document.createElement("option");
-//      option.value = array[i];
-//      option.text = array[i];
-//      selectList.appendChild(option);
-//      }
- 
-//    var this_ = this;
-//    var handleRotateNorth = function(e) {
-//      this_.getMap().getView().setRotation(0);
-//    };
-     
- 
-//    button.addEventListener('click', handleRotateNorth, false);
-//    button.addEventListener('touchstart', handleRotateNorth, false);
- 
-//    var element = document.createElement('div');
-//    element.className = 'ol-unselectable ol-mycontrol';
-//    element.appendChild(button);
-//    element.appendChild(button1);
-//    element.appendChild(selectList);
- 
-//    ol.control.Control.call(this, {
-//      element: element,
-//      target: options.target
-//    });
- 
-//  };
-//  ol.inherits(app.CustomToolbarControl, ol.control.Control);
- 
- 
-//  //
-//  // Create map, giving it a rotate to north control.
-//  //
- 
- 
-//  var map = new ol.Map({
-//    controls: ol.control.defaults({
-//      attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
-//        collapsible: false
-//      })
-//    }).extend([
-//      new app.CustomToolbarControl()
-//    ]),
-//    layers: [
-//      new ol.layer.Tile({
-//        source: new ol.source.OSM()
-//      })
-//    ],
-//    target: 'map',
-//    view: new ol.View({
-//      center: [0, 0],
-//      zoom: 2,
-//      rotation: 1
-//    })
-//  });
